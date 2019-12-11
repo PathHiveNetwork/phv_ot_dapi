@@ -8,12 +8,15 @@ export interface NetworkApi {
   getAllowance({
     asset,
     fromAddress,
-    toAddress
+    toAddress,
+    phvAuth
   }: {
     asset: Asset;
     fromAddress: string;
     toAddress: string;
+    phvAuth: Sring;
   }): Promise<number>;
+  getPhvBlock({ block }: { block: number | string }): Promise<Block>;
   getBlock({ block }: { block: number | string }): Promise<Block>;
   getTransaction({ txHash }: { txHash: string }): Promise<Transaction>;
   getNetwork(): Promise<Network>;
